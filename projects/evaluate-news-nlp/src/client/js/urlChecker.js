@@ -10,15 +10,15 @@ function checkURL(inputText) {
 
   // Set a condition to add an error message to the span if the url is incorrect or
   // remove it in case it is valid
-  if (!match) {
+  if (!match && validationMsg) {
     validationMsg.innerText = "Please add a valid url";
     // Remove the class that hides the the validation message in case
     // the url is corrupt
-    validationMsg.classList.remove("d-none");
+    validationMsg && validationMsg.classList.remove("d-none");
   }
   // Remove the validation message if the link is valid
   else {
-    validationMsg.classList.add("d-none");
+    validationMsg && validationMsg.classList.add("d-none");
   }
 
   // Return the result of the URL testing to either proceed with

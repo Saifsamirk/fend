@@ -1,13 +1,16 @@
+import { checkURL } from "./urlChecker";
+
 function handleSubmit(event) {
   // Prevent the form from reloading
-  event.preventDefault();
+  event && event.preventDefault();
 
   // Check what text was put into the form field
-  let inputURL = document.getElementById("name").value;
+  let inputURL =
+    document.getElementById("name") && document.getElementById("name").value;
 
   // Call the function the validates the url to make sure if
   // it is valid or not
-  const validURL = Client.checkURL(inputURL);
+  const validURL = checkURL(inputURL);
 
   // Initialize an object for the headers of the request body that shall be sent
   // to the server
