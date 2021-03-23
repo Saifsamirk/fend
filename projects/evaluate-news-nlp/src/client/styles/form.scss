@@ -1,0 +1,74 @@
+form {
+  border: 1px solid #545454;
+  border-radius: 3px;
+  padding: 40px;
+  background-color: rgba($color: #011d26, $alpha: 0.8);
+  input {
+    padding: 15px 20px;
+    width: 100%;
+    line-height: 16px;
+    margin: 10px 0;
+    &:last-of-type {
+      // Change the default cursor to pointer
+      cursor: pointer;
+      // Style the last input rendered which is the submit button
+      background-color: #14557f;
+      border: none !important;
+      color: #fff;
+      // Shrink the button when it is active
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+  span {
+    // Display the validation message as flex and align the text
+    // at the beginning of it
+    display: flex;
+    align-self: flex-start;
+    // Change the color of the error message to red
+    color: red;
+    // Hide the validation message when the url is valid
+    &.d-none {
+      display: none !important;
+    }
+  }
+  // Style the form loader that will show up once the request to the
+  // server is sent
+  .page-loader {
+    display: none;
+    justify-content: center;
+    transition: opacity 0.3s ease-in;
+    // Change the background color of the loader circles
+    // and add animation to each one separately
+    .circle {
+      background-color: #14557f;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin: 5px;
+      animation: bounce 0.5s ease-in infinite;
+      &.circle:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      &.circle:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      &.circle:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+    }
+  }
+}
+
+// Handle the animation of each circle in the loader
+// to bounce respectively one by one
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

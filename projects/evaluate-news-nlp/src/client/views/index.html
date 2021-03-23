@@ -13,31 +13,46 @@
     <body>
 
         <header>
-            <div class="">
-                Logo
+            <div class="website-title">
+                NLP Form 
             </div>
             <div class="">
-                navigation
+                1st Project
             </div>
         </header>
 
         <main>
             <section>
-                <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                <form class="" onsubmit="return Client.handleSubmit(event)">
+                    <input id="name" type="text" name="input" value="" placeholder="Enter the URL">
+                    <span id="validation-msg"></span>
+                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                    <div id="page-loader" class="page-loader">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div>
                 </form>
             </section>
 
-            <section>
+            <section id="form-results" class="form-results d-none"> 
                 <strong>Form Results:</strong>
-                <div id="results"></div>
+                <div id="results" class="results"></div>
             </section>
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <p>FWD Scholarship</p>
         </footer>
-
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+           </script>
     </body>
 </html>
